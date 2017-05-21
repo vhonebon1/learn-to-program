@@ -1,48 +1,49 @@
 class BabyDragon
-    def initialize
+    def initialize(name)
         @name = name
         @asleep = false
         @stuff_in_belly = 10
         @stuff_in_intestine = 0
-        puts "#{name} is born"
+        puts "#{@name} is born"
     end
 
     def feed
-        puts "You feed #{name}"
+        puts "You feed #{@name}"
         @stuff_in_belly = 10
         passage_of_time
     end
 
     def walk
-        puts "you walk #{name}"
+        puts "you walk #{@name}"
         @stuff_in_intestine = 0
         passage_of_time
     end
 
     def put_to_bed
-        puts "You put #{name} to bed"
+        puts "You put #{@name} to bed"
         @asleep = true
         3.times do
             if @asleep
                 passage_of_time
             end
             if @asleep
-                puts "#{name} snores, filling the room with smoke"
+                puts "#{@name} snores, filling the room with smoke"
             end
         end
-        if @asleep = false
-            puts "#{name} wakes up slowly"
+        if @asleep 
+            @asleep = false
+            puts "#{@name} wakes up slowly"
         end
     end
 
     def toss
-        puts "You toss #{name} up into the air."
+        puts "You toss #{@name} up into the air."
         puts "He giggles, which singes your eyebrows."
         passage_of_time
     end
 
     def rock
-        puts "You rock #{name} gently."
+        puts "You rock #{@name} gently."
         @asleep = true
         puts "He briefly dozes off..."
         passage_of_time
@@ -70,7 +71,7 @@ class BabyDragon
                 @asleep = false
                 puts "He wakes up suddenly!"
             end
-            puts "#{name} is staving!"
+            puts "#{@name} is staving!.  In desparation he ate YOU!"
             exit
         end
         if @stuff_in_intestine >= 10
@@ -82,14 +83,14 @@ class BabyDragon
                 @asleep = false
                 puts "He wakes up suddenly!"
             end
-            puts "#{name}'s stomach grumbles..."
+            puts "#{@name}'s stomach grumbles..."
         end
         if poopy?
             if @asleep
                 @asleep = false
                 puts "He wakes up suddenly!"
             end
-            puts "#{name} does the potty dance..."
+            puts "#{@name} does the potty dance..."
         end
     end
 end
@@ -99,7 +100,7 @@ name = gets.chomp
 dragon = BabyDragon.new name
 
 while true
-puts "Please say what you would like to do for #{name}: feed, toss, walk, rock, put to bed, exit"
+puts "Please say what you would like to do for #{@name}: feed, toss, walk, rock, put to bed, exit"
 command = gets.chomp
 
 if command == "exit"
